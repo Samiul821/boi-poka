@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
-    const links = <>
-        <Link to='/'><li className="m-2">Home</li></Link>
-        <Link to='/readList'><li className="m-2">Listed Books</li></Link>
-    </>
+  // const links = <>
+  //     <Link to='/'><li className="m-2">Home</li></Link>
+  //     <Link to='/readList'><li className="m-2">Listed Books</li></Link>
+  // </>
   return (
     <div className="navbar bg-base-100 shadow-sm px-2 md:px-10 lg:px-20">
       <div className="navbar-start">
@@ -31,14 +31,58 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {links}
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "text-indigo-600" : "")}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/readList"
+                className={({ isActive }) => (isActive ? "text-indigo-600" : "")}
+              >
+                Listed Books
+              </NavLink>
+            </li>
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost text-xl font-bold">Book Vibe</Link>
+        <Link to="/" className="btn btn-ghost text-xl font-bold">
+          Book Vibe
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {links}
+        <ul className="menu menu-horizontal px-1 space-x-4">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-md font-medium transition duration-200 work-sans text-lg ${
+                  isActive
+                    ? "text-green-500 border-2 border-green-500"
+                    : "text-gray-700 hover:text-green-500"
+                }`
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/readList"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-md font-medium transition duration-200 work-sans text-lg ${
+                  isActive
+                    ? "text-green-500 border-2 border-green-500"
+                    : "text-gray-700 hover:text-green-500"
+                }`
+              }
+            >
+              Listed Books
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">

@@ -33,7 +33,7 @@ const BookDetails = () => {
 
     MySwal.fire({
         title: "Good job!",
-        text: "You clicked the button!",
+        text: "You added the mark as read!",
         icon: "success"
       });
 
