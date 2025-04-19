@@ -47,6 +47,14 @@ const Navbar = () => {
                 Listed Books
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/pagesToRead"
+                className={({ isActive }) => (isActive ? "text-indigo-600" : "")}
+              >
+                Pages to Read
+              </NavLink>
+            </li>
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl font-bold">
@@ -81,6 +89,20 @@ const Navbar = () => {
               }
             >
               Listed Books
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/pagesToRead"
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-md font-medium transition duration-200 work-sans text-lg ${
+                  isActive
+                    ? "text-green-500 border-2 border-green-500"
+                    : "text-gray-700 hover:text-green-500"
+                }`
+              }
+            >
+              Pages to Read
             </NavLink>
           </li>
         </ul>
