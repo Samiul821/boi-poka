@@ -1,5 +1,10 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToStoredDB } from "../../utility/AddToDB";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -18,11 +23,28 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
   } = singleBook;
+
+  const handleMarkAsRead = id => {
+    // Store with ID
+    // where to store
+    // array or collection
+    // if book already exists the show a alert
+    // if book not exists then push in the array or collections
+
+    MySwal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
+
+    addToStoredDB(id);
+  } 
+
   return (
     <div className="grid lg:grid-cols-2 items-start gap-8 lg:gap-12 mb-10">
       <div className="flex justify-center p-[24px] md:p-[48px] lg:p-[74px] bg-gray-200 rounded-2xl">
         <img
-          className="md:w-[425px] h-[564px] w-full rounded-2xl"
+          className="h-[570px] w-auto rounded-2xl"
           src={image}
           alt=""
         />
@@ -72,8 +94,8 @@ const BookDetails = () => {
           </div>
         </div>
         <div className="space-x-4 flex items-center">
-        <button className="btn btn-outline btn-info work-sans text-lg font-semibold">Info</button>
-          <button class="btn btn-success work-sans text-lg font-semibold">Success</button>
+        <button onClick={() => handleMarkAsRead(id)} className="btn btn-outline btn-info work-sans text-lg font-semibold">Mark as Read</button>
+          <button class="btn btn-success work-sans text-lg font-semibold">Add To WishList</button>
         </div>
       </div>
     </div>

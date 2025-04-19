@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const Navbar = () => {
     const links = <>
         <Link to='/'><li className="m-2">Home</li></Link>
-        <Link to='/about'><li className="m-2">About</li></Link>
+        <Link to='/readList'><li className="m-2">Listed Books</li></Link>
     </>
   return (
     <div className="navbar bg-base-100 shadow-sm px-2 md:px-10 lg:px-20">
@@ -34,7 +34,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-bold">Book Vibe</a>
+        <Link to='/' className="btn btn-ghost text-xl font-bold">Book Vibe</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
