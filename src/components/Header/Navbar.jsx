@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
+import Button from "../Ui/Button";
 
 const Navbar = () => {
   // const links = <>
@@ -107,8 +108,9 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end flex items-center space-x-4">
+        <a className="btn btn-success text-white work-sans font-semibold">Sign In</a>
+        <a className="btn btn-info text-white work-sans font-semibold">Sign Up</a>
       </div>
     </div>
   );
